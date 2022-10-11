@@ -18,4 +18,11 @@ password = ''
 for i in range(password_length): 
     password += ''.join(secrets.choice(alphabet))
 
+# Password with Constraints
+while True: 
+    for i in range(password_length):
+        password += ''.join(secrets.choice(alphabet))
+
+    if (any(char in special_characters for char in password) and sum(char in numbers for char in password) >=2 ): break
+
 print(password)
