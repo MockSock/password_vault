@@ -5,7 +5,7 @@
 # Find a way to make a better constraint for the password maker
 
 import string
-from flask import Flask
+from flask import Flask, render_template
 
 user = ''
 # common acryonym for password
@@ -15,7 +15,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def test_call():
-    return ('Test 123')
+    return render_template('index.html')
+    
 
 if __name__ == '__main__':
     app.run()
