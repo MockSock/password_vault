@@ -12,7 +12,7 @@ def saveFileKey():
         filekey.write(fileKey)
 
 # Open and use key 
-with open('nba.csv', 'rb') as file:
+with open('user.key', 'rb') as file:
     original = file.read()
 
 # Encrypt file 
@@ -20,5 +20,5 @@ encryptAction = fernet.encrypt(original)
 
 # Write password to file 
 def savePwd(storagePwd):
-    with open('user_pwd.txt', 'wb') as filekey:
-        filekey.write(storagePwd)
+    with open('user_pwd.txt', 'wb') as encrypted_file:
+        encrypted_file.write(storagePwd)
