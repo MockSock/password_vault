@@ -6,7 +6,7 @@
 
 from flask import Flask, render_template
 
-from random_password import password
+from src.random_password import password
 
 user = ''
 # common acryonym for password
