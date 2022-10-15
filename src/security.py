@@ -16,4 +16,7 @@ def saveFileKey():
     with open('user.key', 'wb') as filekey:
         filekey.write(fileKey)
 
+def savePwd():
+    with open('user_pwd.key', 'rb') as filekey:
+        filekey.write(storagePwd)
 # Open and use key 
