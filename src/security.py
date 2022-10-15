@@ -5,8 +5,7 @@ from cryptography.fernet import Fernet
 from random_password import password
 
 # get password from user 
-storagePwd = password
-# for now it'll be randomly generated
+storagePwd = ''
 fileKey = Fernet.generate_key()
 fernet = Fernet(fileKey)
 
@@ -19,4 +18,7 @@ def saveFileKey():
 def savePwd():
     with open('user_pwd.key', 'rb') as filekey:
         filekey.write(storagePwd)
+
 # Open and use key 
+with open('nba.csv', 'rb') as file:
+    original = file.read()
