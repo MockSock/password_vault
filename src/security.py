@@ -2,10 +2,6 @@
 
 from cryptography.fernet import Fernet
 
-from random_password import password
-
-# get password from user 
-storagePwd = ''
 fileKey = Fernet.generate_key()
 fernet = Fernet(fileKey)
 
@@ -15,10 +11,14 @@ def saveFileKey():
     with open('user.key', 'wb') as filekey:
         filekey.write(fileKey)
 
-def savePwd():
-    with open('user_pwd.key', 'rb') as filekey:
-        filekey.write(storagePwd)
-
 # Open and use key 
 with open('nba.csv', 'rb') as file:
     original = file.read()
+
+# Encrypt file 
+encryptAction = fernet.encrypt(original)
+
+# Write password to file 
+def savePwd(storagePwd):
+    with open('user_pwd.txt', 'wb') as filekey:
+        filekey.write(storagePwd)
