@@ -13,10 +13,6 @@ class Encrytion:
         with open('user.key', 'wb') as filekey:
             filekey.write(fileKey)
 
-    # Open and use key 
-    with open('user.key', 'rb') as file:
-        original = file.read()
-
     # Encrypt file 
     encryptAction = fernet.encrypt(original)
 
@@ -25,3 +21,9 @@ class Encrytion:
         with open('user.key', 'wb') as encrypted_file:
             encrypted_file.write(storagePwd) 
 
+class Decryption:
+
+    # Open and use key 
+    def useFileKey():
+        with open('user.key', 'rb') as file:
+            original = file.read()
