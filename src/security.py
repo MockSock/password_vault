@@ -14,7 +14,7 @@ class Encrytion:
             filekey.write(fileKey)
 
     # Encrypt file 
-    encryptAction = cypher.encrypt(original)
+    token = cypher.encrypt(original)
 
     # Write password to file 
     def savePwd(storagePwd):
