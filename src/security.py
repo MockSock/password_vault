@@ -3,7 +3,7 @@
 from cryptography.fernet import Fernet
 
 fileKey = Fernet.generate_key()
-fernet = Fernet(fileKey)
+cypher = Fernet(fileKey)
 
 class Encrytion:
 
@@ -14,7 +14,7 @@ class Encrytion:
             filekey.write(fileKey)
 
     # Encrypt file 
-    encryptAction = fernet.encrypt(original)
+    encryptAction = cypher.encrypt(original)
 
     # Write password to file 
     def savePwd(storagePwd):
