@@ -5,7 +5,7 @@ from cryptography.fernet import Fernet
 fileKey = Fernet.generate_key()
 cypher = Fernet(fileKey)
 
-class Encrytion:
+class Encryption:
 
     # Attack key to file for storage 
     # Most likely will make a dictionary for a user that will have multiple passwords and sites
