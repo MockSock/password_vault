@@ -12,18 +12,22 @@ class Encrytion:
     def saveFileKey():
         with open('user.key', 'wb') as filekey:
             filekey.write(fileKey)
+    
+    # Find a way to make the next few sections methods 
+    # Open and use key 
+    with open('user.key', 'rb') as filekey:
+        cypher = filekey.read()
+
+    # Open file to encrypt
+    with open('user_pwd.csv', 'rb') as file:
+        original = file.read()
 
     # Encrypt file 
-    token = cypher.encrypt(original)
+    encrypted = cypher.encrypt(original)
 
     # Write password to file 
     def savePwd(storagePwd):
-        with open('user.key', 'wb') as encrypted_file:
+        with open('user_pwd.csv', 'wb') as encrypted_file:
             encrypted_file.write(storagePwd) 
 
 class Decryption:
-
-    # Open and use key 
-    def useFileKey():
-        with open('user.key', 'rb') as file:
-            original = file.read()
