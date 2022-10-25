@@ -8,6 +8,7 @@ from flask import Flask, render_template
 
 from random_password import password
 from security import Encryption, Decryption
+
 user = ''
 # common acryonym for password
 pwd = ''
