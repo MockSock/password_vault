@@ -31,3 +31,14 @@ class Encrytion:
             encrypted_file.write(storagePwd) 
 
 class Decryption:
+    
+    # Open encrypted file
+    with open('user_pwd.csv', 'rb') as encryted_file:
+        encryptedContent = encryted_file.read()
+    
+    # Decrypt file
+    decryptedContent = cypher.decrypt(encryptedContent)
+
+    # Open the file in write mode and write data
+    with open('user_pwd.csv', 'wb') as deccrypted_file:
+        deccrypted_file.write(decryptedContent)
