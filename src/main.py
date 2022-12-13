@@ -6,6 +6,7 @@
 from flask import Flask, render_template
 
 from random_password import password
+from security import Decryption
 
 app = Flask(__name__)
 
@@ -17,6 +18,11 @@ def test_call():
 @app.route('/createpwd')
 def create_pwd():
     return password
+
+# Will read password from file 
+@app.route('/findpwd')
+def find_pwd():
+    return Decryption.decryptedContent
 
 if __name__ == '__main__':
     app.run()
