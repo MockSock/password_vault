@@ -39,6 +39,5 @@ class Decryption:
     # Decrypt file
     decryptedContent = cypher.decrypt(encryptedContent)
 
-    # Open the file in write mode and write data
-    with open('user_pwd.csv', 'wb') as deccrypted_file:
-        deccrypted_file.write(decryptedContent)
+    # Return Password
+    print(decryptedContent)
