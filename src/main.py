@@ -1,7 +1,7 @@
 # Current Goals: 
-# Find a way to encrypt sensitive files
 # Find a way to make a better constraint for the password maker
-# Link up the security portion to api calls
+# Link up the security portion to api calls or connsole commands
+# link site to password to sort them better 
 
 from flask import Flask, render_template
 
