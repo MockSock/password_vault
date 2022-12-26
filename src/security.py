@@ -3,17 +3,15 @@
 from cryptography.fernet import Fernet
 
 fileKey = Fernet.generate_key()
+
 cypher = Fernet(fileKey)
 
 class Encryption:
 
-    # Attack key to file for storage 
-    # Most likely will make a dictionary for a user that will have multiple passwords and sites
-    def saveFileKey():
-        with open('user.key', 'wb') as filekey:
-            filekey.write(fileKey)
-    
-    # Find a way to make the next few sections methods 
+    def create_fileKey():
+        with open('user.key', 'wb') as userFileKey:
+            userFileKey.write(fileKey) 
+            
     # Open and use key 
     def read_pwd(cypher):
         with open('user.key', 'rb') as filekey:
