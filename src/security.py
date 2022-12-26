@@ -15,8 +15,9 @@ class Encryption:
     
     # Find a way to make the next few sections methods 
     # Open and use key 
-    with open('user.key', 'rb') as filekey:
-        cypher = filekey.read()
+    def read_pwd(cypher):
+        with open('user.key', 'rb') as filekey:
+            cypher = filekey.read()
 
     # Open file to encrypt
     with open('user_pwd.csv', 'rb') as file:
