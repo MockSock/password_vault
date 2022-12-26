@@ -19,16 +19,17 @@ class Encryption:
         return cypher
 
     # Open file to encrypt
-    with open('user_pwd.csv', 'rb') as file:
-        original = file.read()
+    def encrypt_file():
+        with open('user_pwd.csv', 'rb') as file:
+            original = file.read()
 
-    # Encrypt file 
-    encrypted = cypher.encrypt(original)
+        # Encrypt file 
+        encrypted = cypher.encrypt(original)
 
-    # Write password to file 
-    def savePwd(storagePwd):
-        with open('user_pwd.csv', 'wb') as encrypted_file:
-            encrypted_file.write(storagePwd) 
+        # Write password to file 
+        def savePwd(storagePwd):
+            with open('user_pwd.csv', 'wb') as encrypted_file:
+                encrypted_file.write(storagePwd) 
 
 class Decryption:
     
