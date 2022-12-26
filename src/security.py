@@ -23,9 +23,10 @@ class Encryption:
         with open('user_pwd.csv', 'rb') as file:
             original = file.read()
 
-        # Encrypt file 
+        # Encrypt Contents of File
         encrypted = cypher.encrypt(original)
 
+        # Lastly, write what is needed 
         with open('user_pwd.csv', 'wb') as encrypted_file:
             encrypted_file.write(encrypted)
 
