@@ -29,15 +29,3 @@ class Encryption:
         # Lastly, write what is needed 
         with open('user_pwd.csv', 'wb') as encrypted_file:
             encrypted_file.write(encrypted)
-
-class Decryption:
-    
-    # Open encrypted file
-    with open('user_pwd.csv', 'rb') as encryted_file:
-        encryptedContent = encryted_file.read()
-    
-    # Decrypt file
-    decryptedContent = cypher.decrypt(encryptedContent)
-
-    # Return Password
-    print(decryptedContent)
