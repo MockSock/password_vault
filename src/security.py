@@ -21,13 +21,16 @@ class Security:
         return userKey
 
     # Open file to encrypt
-    def encrypt_file():
-        with open('user_pwd.csv', 'rb') as file:
+    def encrypt_file(self, userKey, original_file, encrypted_file):
+
+        cypher = Fernet(userKey)
+
+        with open(original_file, 'rb') as file:
             original = file.read()
 
         # Encrypt Contents of File
-        encrypted = userKey.encrypt(original)
+        encrypted = cypher.encrypt(original)
 
         # Lastly, write what is needed 
-        with open('user_pwd.csv', 'wb') as encrypted_file:
-            encrypted_file.write(encrypted)
+        with open(encrypted_file, 'wb') as file:
+            file.write(encrypted)
