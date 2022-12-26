@@ -1,16 +1,12 @@
 # Current Goals: 
-# Create a way to store and retrieve passwords
-# Find a way to encrypt sensitive files
-# Create a login for user 
 # Find a way to make a better constraint for the password maker
+# Link up the security portion to api calls or connsole commands
+# link site to password to sort them better 
 
 from flask import Flask, render_template
 
 from random_password import password
-
-user = ''
-# common acryonym for password
-pwd = ''
+from security import Decryption
 
 app = Flask(__name__)
 
@@ -22,6 +18,11 @@ def test_call():
 @app.route('/createpwd')
 def create_pwd():
     return password
+
+# Will read password from file 
+@app.route('/findpwd')
+def find_pwd():
+    return Decryption.decryptedContent
 
 if __name__ == '__main__':
     app.run()
