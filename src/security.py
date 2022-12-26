@@ -11,11 +11,12 @@ class Encryption:
     def create_fileKey():
         with open('user.key', 'wb') as userFileKey:
             userFileKey.write(fileKey) 
-            
+
     # Open and use key 
-    def read_pwd(cypher):
-        with open('user.key', 'rb') as filekey:
-            cypher = filekey.read()
+    def read_pwd():
+        with open('user.key', 'rb') as userFilekey:
+            cypher = userFilekey.read()
+        return cypher
 
     # Open file to encrypt
     with open('user_pwd.csv', 'rb') as file:
