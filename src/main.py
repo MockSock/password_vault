@@ -6,7 +6,7 @@
 from flask import Flask, render_template
 
 from random_password import password
-from security import Decryption
+from security import Security
 
 app = Flask(__name__)
 

@@ -6,7 +6,7 @@ fileKey = Fernet.generate_key()
 
 cypher = Fernet(fileKey)
 
-class Encryption:
+class Security:
 
     def create_fileKey():
         with open('user.key', 'wb') as userFileKey:
