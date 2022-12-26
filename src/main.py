@@ -22,7 +22,7 @@ def create_pwd():
 # Will read password from file 
 @app.route('/findpwd')
 def find_pwd():
-    return Decryption.decryptedContent
+    return Security.read_pwd()
 
 if __name__ == '__main__':
     app.run()
