@@ -2,13 +2,15 @@
 
 from cryptography.fernet import Fernet
 
-fileKey = Fernet.generate_key()
-
 cypher = Fernet(fileKey)
 
 class Security:
 
-    def create_fileKey():
+    def create_fileKey(self):
+       fileKey = Fernet.generate_key() 
+       return fileKey
+
+    def write_fileKey(self, fileKey):
         with open('user.key', 'wb') as userFileKey:
             userFileKey.write(fileKey) 
 
