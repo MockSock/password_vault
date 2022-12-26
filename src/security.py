@@ -26,10 +26,8 @@ class Encryption:
         # Encrypt file 
         encrypted = cypher.encrypt(original)
 
-        # Write password to file 
-        def savePwd(storagePwd):
-            with open('user_pwd.csv', 'wb') as encrypted_file:
-                encrypted_file.write(storagePwd) 
+        with open('user_pwd.csv', 'wb') as encrypted_file:
+            encrypted_file.write(encrypted)
 
 class Decryption:
     
