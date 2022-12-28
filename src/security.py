@@ -2,7 +2,7 @@
 
 from cryptography.fernet import Fernet
 
-class Security:
+class Security():
     # We use user file to be able to 
     # distinguish different users 
 
