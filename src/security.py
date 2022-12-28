@@ -20,7 +20,7 @@ class Security:
             user_key = userFilekey.read()
         return user_key
 
-    # Open file to encrypt
+    # Used for initial file encryption
     def encrypt_file(self, user_key, original_file, encrypted_file):
 
         cypher = Fernet(user_key)
@@ -35,6 +35,7 @@ class Security:
         with open(encrypted_file, 'wb') as file:
             file.write(encrypted)
 
+    # Used for after initial encryption
     def decrypt_file(self, user_key, encrypted_file, decrypted_file):
 
         cypher = Fernet(user_key)
