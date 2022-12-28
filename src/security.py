@@ -17,13 +17,13 @@ class Security:
     # Open and use key 
     def load_key(self, user_file):
         with open(user_file, 'rb') as userFilekey:
-            userKey = userFilekey.read()
-        return userKey
+            user_key = userFilekey.read()
+        return user_key
 
     # Open file to encrypt
-    def encrypt_file(self, userKey, original_file, encrypted_file):
+    def encrypt_file(self, user_key, original_file, encrypted_file):
 
-        cypher = Fernet(userKey)
+        cypher = Fernet(user_key)
 
         with open(original_file, 'rb') as file:
             original = file.read()
@@ -34,3 +34,15 @@ class Security:
         # Lastly, write what is needed 
         with open(encrypted_file, 'wb') as file:
             file.write(encrypted)
+
+    def decrypt_file(self, user_key, encrypted_file, decrypted_file):
+
+        cypher = Fernet(user_key)
+
+        with open(encrypted_file, 'rb') as file:
+            encrypted = file.read()
+
+        decrypted_content = cypher.decrypt(encrypted)
+
+        with open (decrypted_file, 'wb') as file:
+            file.write(decrypted_content)
