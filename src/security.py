@@ -2,43 +2,48 @@
 
 from cryptography.fernet import Fernet
 
-fileKey = Fernet.generate_key()
-cypher = Fernet(fileKey)
+class Security():
+    # We use user file to be able to 
+    # distinguish different users 
 
-class Encryption:
+    def create_file_key(self):
+       file_key = Fernet.generate_key() 
+       return file_key
 
-    # Attack key to file for storage 
-    # Most likely will make a dictionary for a user that will have multiple passwords and sites
-    def saveFileKey():
-        with open('user.key', 'wb') as filekey:
-            filekey.write(fileKey)
-    
-    # Find a way to make the next few sections methods 
+    def write_file_key(self, file_key, user_file):
+        with open(user_file, 'wb') as userfile_key:
+            userfile_key.write(file_key) 
+
     # Open and use key 
-    def read_pwd(cypher):
-        with open('user.key', 'rb') as filekey:
-            cypher = filekey.read()
+    def load_key(self, user_file):
+        with open(user_file, 'rb') as userfile_key:
+            user_key = userfile_key.read()
+        return user_key
 
-    # Open file to encrypt
-    with open('user_pwd.csv', 'rb') as file:
-        original = file.read()
+    # Used for initial file encryption
+    def encrypt_file(self, user_key, original_file, encrypted_file):
 
-    # Encrypt file 
-    encrypted = cypher.encrypt(original)
+        cypher = Fernet(user_key)
 
-    # Write password to file 
-    def savePwd(storagePwd):
-        with open('user_pwd.csv', 'wb') as encrypted_file:
-            encrypted_file.write(storagePwd) 
+        with open(original_file, 'rb') as file:
+            original = file.read()
 
-class Decryption:
-    
-    # Open encrypted file
-    with open('user_pwd.csv', 'rb') as encryted_file:
-        encryptedContent = encryted_file.read()
-    
-    # Decrypt file
-    decryptedContent = cypher.decrypt(encryptedContent)
+        # Encrypt Contents of File
+        encrypted = cypher.encrypt(original)
 
-    # Return Password
-    print(decryptedContent)
+        # Lastly, write what is needed 
+        with open(encrypted_file, 'wb') as file:
+            file.write(encrypted)
+
+    # Used for after initial encryption
+    def decrypt_file(self, user_key, encrypted_file, decrypted_file):
+
+        cypher = Fernet(user_key)
+
+        with open(encrypted_file, 'rb') as file:
+            encrypted = file.read()
+
+        decrypted_content = cypher.decrypt(encrypted)
+
+        with open (decrypted_file, 'wb') as file:
+            file.write(decrypted_content)
