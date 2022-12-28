@@ -23,7 +23,13 @@ def test_call():
 def create_pwd():
     return password
 
-@app.route('/create')
+# Will Create a user_key
+@app.route('/createkey')
+def create_user_key():
+    new_key = user_security.create_file_key()
+    user_key = new_key
+    return user_key
+
 # Will read password from file 
 @app.route('/findpwd')
 def find_pwd():
