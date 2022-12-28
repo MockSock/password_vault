@@ -10,6 +10,10 @@ from security import Security
 
 app = Flask(__name__)
 
+# security file work
+user_security = Security()
+user_key = ''
+
 @app.route('/')
 def test_call():
     return render_template('index.html')
@@ -19,10 +23,11 @@ def test_call():
 def create_pwd():
     return password
 
+@app.route('/create')
 # Will read password from file 
 @app.route('/findpwd')
 def find_pwd():
-    return Security.decrypt_file()
+    return user_security.decrypt_file()
 
 if __name__ == '__main__':
     app.run()
