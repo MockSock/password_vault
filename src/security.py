@@ -6,18 +6,18 @@ class Security():
     # We use user file to be able to 
     # distinguish different users 
 
-    def create_fileKey(self):
-       fileKey = Fernet.generate_key() 
-       return fileKey
+    def create_file_key(self):
+       file_key = Fernet.generate_key() 
+       return file_key
 
-    def write_fileKey(self, fileKey, user_file):
-        with open(user_file, 'wb') as userFileKey:
-            userFileKey.write(fileKey) 
+    def write_file_key(self, file_key, user_file):
+        with open(user_file, 'wb') as userfile_key:
+            userfile_key.write(file_key) 
 
     # Open and use key 
     def load_key(self, user_file):
-        with open(user_file, 'rb') as userFilekey:
-            user_key = userFilekey.read()
+        with open(user_file, 'rb') as userfile_key:
+            user_key = userfile_key.read()
         return user_key
 
     # Used for initial file encryption
