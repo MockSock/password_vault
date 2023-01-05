@@ -12,7 +12,8 @@ app = Flask(__name__)
 
 # security file work
 user_security = Security()
-user_key = ''
+user_key = '' 
+current_password = password
 
 @app.route('/')
 def test_call():
@@ -21,7 +22,9 @@ def test_call():
 # Will create a random password
 @app.route('/createpwd')
 def create_pwd():
-    return password
+    # This password isn't returned, and needs an overhaul
+    generated_password = password
+    return 
 
 # Will Create a key for a new user
 @app.route('/createkey')
