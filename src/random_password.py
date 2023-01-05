@@ -3,7 +3,7 @@ import secrets, string
 class Password_Generator:
     password = ''
 
-    def generate_pwd(self):
+    def generate_pwd(self, password):
         # All characters
 
         letters = string.ascii_letters
