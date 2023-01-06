@@ -5,15 +5,15 @@
 
 from flask import Flask, render_template
 
-from random_password import password
+from random_password import Password_Generator
 from security import Security
 
 app = Flask(__name__)
 
 # security file work
 user_security = Security()
-user_key = '' 
-current_password = password
+user_key = ''
+current_password = Password_Generator.password
 
 @app.route('/')
 def test_call():
@@ -22,9 +22,8 @@ def test_call():
 # Will create a random password
 @app.route('/createpwd')
 def create_pwd():
-    # This password isn't returned, and needs an overhaul
-    generated_password = password
-    return 
+    current_password = Password_Generator.generate_pwd()
+    return current_password
 
 # Will Create a key for a new user
 @app.route('/createkey')
