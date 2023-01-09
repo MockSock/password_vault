@@ -15,7 +15,7 @@ class Password_Generator:
         # underscores are used to show throw away variables, just like in Dart
         generated_password = ''.join(secrets.choice(alphabet) for _ in range(password_length))
 
-        print(generated_password)
+        return generated_password
 
         # no way to test if this generates a real password
         # for i in range(password_length): 
