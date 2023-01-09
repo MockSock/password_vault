@@ -1,11 +1,8 @@
 import secrets, string 
 
 class Password_Generator:
-    password = ''
-
-    def generate_pwd(self, password):
+    def generate_pwd(self):
         # All characters
-
         letters = string.ascii_letters
         numbers = string.digits
         special_characters = string.punctuation
@@ -13,12 +10,19 @@ class Password_Generator:
         # Connect the characters together 
         alphabet = letters + numbers + special_characters 
         password_length = 18
-        for i in range(password_length): 
-            generated_password += ''.join(secrets.choice(alphabet))
-        
-        password = generated_password
 
-        return password
+        generated_password = ''.join(secrets.choice(alphabet) for x in range(password_length))
+
+        print(generated_password)
+
+        # no way to test if this generates a real password
+        # for i in range(password_length): 
+        #     generated_password += ''.join(secrets.choice(alphabet))
+        
+        # password = generated_password
+
+        # return password
+        
 
     # Password with Constraints
     # while True: 
