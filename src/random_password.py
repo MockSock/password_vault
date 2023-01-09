@@ -12,7 +12,8 @@ class Password_Generator:
         alphabet = lower_case_letters + upper_case_letters + numbers + special_characters 
         password_length = 18
 
-        generated_password = ''.join(secrets.choice(alphabet) for x in range(password_length))
+        # underscores are used to show throw away variables, just like in Dart
+        generated_password = ''.join(secrets.choice(alphabet) for _ in range(password_length))
 
         print(generated_password)
 
