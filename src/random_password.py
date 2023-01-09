@@ -4,11 +4,12 @@ class Password_Generator:
     def generate_pwd(self):
         # All characters
         lower_case_letters = string.ascii_lowercase
+        upper_case_letters = string.ascii_uppercase
         numbers = string.digits
         special_characters = string.punctuation
 
         # Connect the characters together 
-        alphabet = lower_case_letters + numbers + special_characters 
+        alphabet = lower_case_letters + upper_case_letters + numbers + special_characters 
         password_length = 18
 
         generated_password = ''.join(secrets.choice(alphabet) for x in range(password_length))
