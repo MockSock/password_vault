@@ -16,14 +16,6 @@ class Password_Generator:
         generated_password = ''.join(secrets.choice(alphabet) for _ in range(password_length))
 
         return generated_password
-
-        # no way to test if this generates a real password
-        # for i in range(password_length): 
-        #     generated_password += ''.join(secrets.choice(alphabet))
-        
-        # password = generated_password
-
-        # return password
         
 
     # Password with Constraints
