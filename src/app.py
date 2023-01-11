@@ -13,7 +13,7 @@ app = Flask(__name__)
 # security file work
 user_security = Security()
 user_key = ''
-current_password = Password_Generator.password
+current_password = ''
 
 @app.route('/')
 def test_call():
