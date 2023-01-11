@@ -33,7 +33,7 @@ def create_user_key():
     return user_key
 
 # Will find a key for existing user
-@app.rooute('/findkey')
+@app.route('/findkey')
 def find_user_key():
     loaded_key = user_security.load_key()
     user_key = loaded_key
